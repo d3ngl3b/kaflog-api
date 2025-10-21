@@ -1,0 +1,6 @@
+
+logs | start
+Message for s3 and db appenders
+end | 1761031066394
+logs | Another message for db and s3 | 1761031089186
+logs | Yet Another message for db and s3 | 1761031166670
