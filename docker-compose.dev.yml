@@ -8,6 +8,16 @@ volumes:
 
 services:
 
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - 1337:80
+    depends_on:
+      - django
+    networks:
+      - blog-network
 
   api:
     build:
