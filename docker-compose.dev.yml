@@ -9,7 +9,7 @@ volumes:
 services:
 
 
-  test-api:
+  api:
     build:
       context: api
       dockerfile: Dockerfile
