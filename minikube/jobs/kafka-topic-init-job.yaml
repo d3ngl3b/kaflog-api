@@ -1,0 +1,25 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: kafka-topic-init
+spec:
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: topic-init
+          image: confluentinc/cp-kafka:7.8.0
+          command:
+            - /bin/sh
+            - -c
+            - |
+              echo "Waiting for Kafka to be ready..."
+              until kafka-topics --bootstrap-server kafka1:9092 --list; do
+                sleep 5
+              done
+
+              echo "Creating Kafka topics..."
+              kafka-topics --bootstrap-server kafka1:9092 --create --if-not-exists --topic logs --replication-factor 1 --partitions 4
+
+              echo "Topics successfully created:"
+              kafka-topics --bootstrap-server kafka1:9092 --list
