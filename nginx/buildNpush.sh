@@ -2,7 +2,7 @@
 # Author: Gleb Denisov
 # Description: This script builds custom Nginx image and pushes it to Docker repository
 
-IMAGE_NAME=blog-nginx
+IMAGE_NAME=loggingapi-nginx
 TAG=${1:-latest}
 USERNAME=gl3b
 PLATFORMS="linux/amd64,linux/arm64"
